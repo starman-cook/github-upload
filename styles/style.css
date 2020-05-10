@@ -199,7 +199,6 @@ body {
     background: black;
     transform: translate(0, -30px);
 }
-@include breakpoint($breakpoint)
 /* medias */
 @media screen and (min-height: 568px) {
     .lamp-wrapper {
@@ -481,4 +480,3 @@ body {
             transform: rotate(5deg);
     }
 }
-@include breakpoint($breakpoint)
