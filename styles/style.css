@@ -1,0 +1,482 @@
+body {
+    margin: 0;
+    font-family: "Shadows Into Light", Arial, "Helvetica Neue", Helvetica, sans-serif;
+    background: #af4600;
+}
+/* main container and mobile-first canvas*/
+.container {
+    max-width: 700px;
+    height: 100vh;
+    margin: 0 auto;
+    position: relative;
+}
+.canvas {
+    max-width: 700px;
+    height: 320px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+/* cloud block */
+.cloud-wrapper {
+    max-width: 220px;
+    position: absolute;
+    left: 0;
+    top: 2%;
+    transform: translate(-90px, 0);
+}
+.cloud-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.cloud-text {
+    font-size: 20px;
+    padding: 10px 50px;
+    animation: time-to-eat 1s alternate infinite;
+}
+.cloud {
+    background: linear-gradient(45deg, #b1b1b1, white, #ccc);
+    border-radius: 50%;
+    margin-bottom: 10px;
+    box-shadow: 0 0 4px 2px black;
+}
+.large-cloud {
+    text-align: center;
+    opacity: 0;
+    animation: comics-large 10s alternate infinite linear;
+}
+.medium-cloud {
+    width: 120px;
+    height: 50px;
+    align-self: center;
+    opacity: 0;
+    animation: comics-medium 10s alternate infinite linear;
+}
+.small-cloud {
+    width: 50px;
+    height: 25px;
+    opacity: 0;
+    animation: comics-small 10s alternate infinite linear;
+}
+/* idea lamp */
+.lamp-wrapper {
+    max-width: 150px;
+    position: absolute;
+    right: 0;
+    top: 2%;
+    transform: translate(70px, 0);
+}
+.lamp-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    animation: lamp-appereance 10s alternate infinite linear;
+}
+.bulb {
+    width: 100px;
+    min-height: 120px;
+    border-radius: 50%;
+}
+.bulb-outter {
+    background: #9b9b9b;
+    transform: translate(0, 15px);
+    overflow: hidden;
+    animation: idea-bulb 10s alternate infinite cubic-bezier(0, 1.9, 0, 1.4);
+}
+.bulb-inner {
+    background: #818181;
+    transform: translate(-15px, -20px);
+    animation: idea-bulb-inner 10s alternate infinite cubic-bezier(0, 1.9, 0, 1.4);
+
+}
+.cup-bulb {
+    width: 30px;
+    height: 40px;
+    border-radius: 20px;
+    background: #575757;
+}
+.black-dot {
+    width: 10px;
+    height: 5px;
+    border-radius: 50%;
+    background: #272727;
+    transform: translate(0, -2px);
+    z-index: -1;
+}
+/* dog face */
+.dog-wrapper{
+    width: 290px;
+    position: relative;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    animation: noding 0.2s alternate infinite linear;
+}
+/* eyes */
+.eyes {
+    display: flex;
+    justify-content: space-between;
+}
+.circles-big {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #d86c24;
+    border: 5px solid black;
+}
+.circles-small {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: black;
+    transform: translate(35px, 15px);
+    animation: staring 20s alternate infinite;
+}
+/* dog's front */
+.front {
+    width: 140px;
+    height: 153px;
+    border: 5px solid black;
+    position: absolute;
+    left: 70px;
+    top: 3px;
+    border-radius: 50% 50% 40% 40% / 65% 65% 30% 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.nose {
+    width: 45px;
+    height: 45px;
+    background: black;
+    border-radius: 50% 10% 50% 10% / 50% 0% 50% 0%;
+    transform: translate(0, 12px) rotate(45deg);
+}
+.top-cheek-line {
+    width: 5px;
+    height: 18px;
+    background: black;
+}
+.cheeks {
+    display: flex;
+}
+.cheek {
+    width: 43px;
+    height: 30px;
+    border-style: solid;
+    border-color: black;
+    border-radius: 0 0 50% 50% / 20% 20% 80% 80%;
+    background: #af4600;
+}
+.cheek-left {
+    flex-basis: 50%;
+    border-width: 0 3px 5px 5px;
+}
+.cheek-right {
+    flex-basis: 50%;
+    border-width: 0 5px 5px 2px;
+}
+.tongue {
+    width: 45px;
+    height: 45px;
+    border-style: solid;
+    border-color: black;
+    border-width: 0 5px 5px 5px;
+    border-radius: 0 0 50% 50% / 0 0 100% 100%;
+    display: flex;
+    justify-content: center;
+    transform: translate(0, -15px);
+    background: #ff4784;
+    z-index: -1;
+    animation: tongue 0.2s alternate infinite linear;
+}
+.tongue-line {
+    width: 5px;
+    height: 55px;
+    background: black;
+    transform: translate(0, -30px);
+}
+/* medias */
+@media screen and (min-height: 568px) {
+    .lamp-wrapper {
+        transform: translate(0, -50px);
+    }
+    .cloud-wrapper {
+        transform: translate(0, -50px);
+    }
+}
+@media screen and (min-width: 568px) {
+    .medium-cloud {
+        align-self: flex-end;
+        transform: translate(0, -10px);
+    }
+    .small-cloud {
+        transform: translate(25px, -25px);
+    }
+}
+@media screen and (min-width: 700px) {
+    .lamp-wrapper {
+        transform: translate(30px, -50px);
+    }
+    .cloud-wrapper {
+        transform: translate(-90px, -50px);
+    }
+    .medium-cloud {
+        align-self: center;
+        transform: translate(0, 0);
+    }
+    .small-cloud {
+        transform: translate(0, 0);
+    }
+}
+/* keyframes */
+@keyframes noding {
+    0% {
+        transform: translate(-50%, -5px);
+    }
+    100% {
+        transform: translate(-50%, 5px);
+    }
+}
+@keyframes staring {
+    0% {
+        transform: translate(36px, 20px);
+    }
+    10% {
+        transform: translate(39px, 32px);
+    }
+    20% {
+        transform: translate(5px, 33px);
+    }
+    30% {
+        transform: translate(10px, 25px);
+    }
+    30% {
+        transform: translate(15px, 15px);
+    }
+    40% {
+        transform: translate(5px, 30px);
+    }
+    50% {
+        transform: translate(37px, 38px);
+    }
+    60% {
+        transform: translate(35px, 10px);
+    }
+    70% {
+        transform: translate(8px, 12px);
+    }
+    80% {
+        transform: translate(11px, 28px);
+    }
+    90% {
+        transform: translate(16px, 25px);
+    }
+    100% {
+        transform: translate(5px, 20px);
+    }
+}
+@keyframes tongue {
+    0% {
+    transform: translate(0, -15px);
+    }
+    100% {
+    transform: translate(0, -25px);
+    }
+}
+@keyframes idea-bulb {
+    0% {
+        background: #9b9b9b;
+        box-shadow: 0 0 0 0;
+    }
+    40% {
+        background: #9b9b9b;
+        box-shadow: 0 0 0 0;
+    }
+    50% {
+        background: yellow;
+        box-shadow: 0 0 20px 20px yellow;
+    }
+    100% {
+        background: yellow;
+        box-shadow: 0 0 20px 20px yellow;
+    }
+}
+@keyframes idea-bulb-inner {
+    0% {
+        background: #818181;
+        box-shadow: 0 0 0 0;
+    }
+    40% {
+        background: #818181;
+        box-shadow: 0 0 0 0;
+    }
+    50% {
+        background: yellow;
+        box-shadow: 0 0 20px 20px yellow;
+    }
+    100% {
+        background: yellow;
+        box-shadow: 0 0 20px 20px yellow;
+    }
+}
+@keyframes lamp-appereance {
+    0% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 0;
+    }
+    30% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes comics-small {
+    0% {
+        opacity: 0;
+    }
+    10% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 0;
+    }
+    30% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    60% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes comics-medium {
+    0% {
+        opacity: 0;
+    }
+    10% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 0;
+    }
+    30% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    60% {
+        opacity: 0;
+    }
+    70% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes comics-large {
+    0% {
+        opacity: 0;
+    }
+    10% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 0;
+    }
+    30% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    60% {
+        opacity: 0;
+    }
+    70% {
+        opacity: 0;
+    }
+    80% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes time-to-eat {
+    0% {
+        transform: rotate(5deg);
+    }
+    10% {
+        transform: rotate(-5deg);
+    }
+    20% {
+        transform: rotate(5deg);
+    }
+    30% {
+        transform: rotate(-5deg);
+    }
+    40% {
+        transform: rotate(5deg);
+    }
+    50% {
+        transform: rotate(-5deg);
+    }
+    60% {
+        transform: rotate(5deg);
+    }
+    70% {
+        transform: rotate(-5deg);
+    }
+    80% {
+        transform: rotate(5deg);
+    }
+    90% {
+        transform: rotate(-5deg);
+    }
+    100% {
+            transform: rotate(5deg);
+    }
+}
